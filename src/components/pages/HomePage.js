@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/auth';
+import * as actions from '../../actions/auth';
 
 const HomePage = ({ isAuthenticated, logout }) => (
   <div>
     <h1>Home Page</h1>
     { isAuthenticated ? 
       <button onClick={() => logout()}>Logout</button> 
-      : <div><Link to="/login">Login</Link></div> }
+      : <div><Link to="/login">Login</Link> or <Link to='/signup'>Signup</Link></div> }
   </div>
 );
 
@@ -24,4 +24,4 @@ function mapStateToProps(state) {
   }
 };
 
-export default connect(mapStateToProps, { logout })(HomePage);
+export default connect(mapStateToProps, actions)(HomePage);
