@@ -46,6 +46,7 @@ class ConfirmationPage extends Component {
             <Message.Content>
               <Message.Header>Oops. Something went wrong.</Message.Header> 
               <p>{errors.global}</p>
+              
             </Message.Content>
           )}
           </Message>

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Message } from 'semantic-ui-react';
-import Validator from 'validator';
+import { isEmail } from 'validator';
 import InlineError from '../messages/InlineError';
 
 class ForgotPasswordForm extends Component {
@@ -32,7 +32,7 @@ class ForgotPasswordForm extends Component {
 
   validate = data => {
     const errors = {};
-    if (!Validator.isEmail(data.email)) errors.email = "Invalid email";
+    if (!isEmail(data.email)) errors.email = "Invalid email";
     return errors;
   };
 
@@ -67,4 +67,5 @@ class ForgotPasswordForm extends Component {
 ForgotPasswordForm.propTypes = {
   submit: PropTypes.func.isRequired
 };
+
 export default ForgotPasswordForm;
