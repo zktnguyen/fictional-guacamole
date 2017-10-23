@@ -11,6 +11,7 @@ import App from './App';
 import rootReducer from './rootReducer';
 import registerServiceWorker from './registerServiceWorker';
 import { userLoggedIn } from './actions/auth';
+import setAuthorizationHeader from './utils/setAuthorizationHeader';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 // This will keep the user logged in.
@@ -20,6 +21,7 @@ if (localStorage.bookwormJWT) {
                 email: payload.email, 
                 confirmed: payload.confirmed 
                };
+  setAuthorizationHeader(localStorage.bookwormJWT);
   store.dispatch(userLoggedIn(user));
 }
 
