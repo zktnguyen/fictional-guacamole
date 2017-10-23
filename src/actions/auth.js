@@ -19,7 +19,6 @@ export const login = (credentials) => dispatch =>
       dispatch(userLoggedIn(user));
     });
 
-
 export const logout = () => dispatch => {
   localStorage.removeItem('bookwormJWT');
   setAuthorizationHeader();  
